@@ -1,7 +1,24 @@
 import http from 'node:http';
+import { readFileSync, existsSync } from 'node:fs';
+import { extname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import Anthropic from '@anthropic-ai/sdk';
 import { runHiringPipeline } from '../workflows/hiring-pipeline.js';
 import type { ResumeInput } from '../workflows/hiring-pipeline.js';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
+const CLIENT_DIR = join(__dirname, '../../dist/client');
+
+const MIME: Record<string, string> = {
+  '.html': 'text/html',
+  '.js': 'application/javascript',
+  '.css': 'text/css',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.ico': 'image/x-icon',
+  '.woff2': 'font/woff2',
+};
 
 const PORT = process.env.PORT ?? 3001;
 
@@ -76,6 +93,25 @@ const server = http.createServer(async (req, res) => {
     }
 
     res.end();
+    return;
+  }
+
+  // Serve static files in production
+  if (existsSync(CLIENT_DIR)) {
+    let filePath = join(CLIENT_DIR, url.pathname === '/' ? 'index.html' : url.pathname);
+    if (!existsSync(filePath)) {
+      filePath = join(CLIENT_DIR, 'index.html');
+    }
+    const ext = extname(filePath);
+    const contentType = MIME[ext] || 'text/plain';
+    try {
+      const data = readFileSync(filePath);
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(data);
+    } catch {
+      res.writeHead(404);
+      res.end('Not found');
+    }
     return;
   }
 
