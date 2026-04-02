@@ -1,4 +1,4 @@
-app = "TEMPLATE_NAME-neenhouse"
+app = "hire-graph-neenhouse"
 primary_region = "sjc"
 
 [http_service]
