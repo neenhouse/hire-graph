@@ -10,16 +10,17 @@
       }
     ]
   },
-  "containers": {
-    "AppContainer": {
-      "image": "./",
+  "containers": [
+    {
+      "class_name": "AppContainer",
+      "image": "./Dockerfile",
       "max_instances": 1
     }
-  },
+  ],
   "migrations": [
     {
       "tag": "v1",
-      "new_classes": ["AppContainer"]
+      "new_sqlite_classes": ["AppContainer"]
     }
   ]
 }
