@@ -1,0 +1,25 @@
+{
+  "name": "hire-graph",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-01-01",
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CONTAINER",
+        "class_name": "AppContainer"
+      }
+    ]
+  },
+  "containers": {
+    "AppContainer": {
+      "image": "./",
+      "max_instances": 1
+    }
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_classes": ["AppContainer"]
+    }
+  ]
+}
