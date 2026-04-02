@@ -11,4 +11,4 @@ RUN pnpm build
 
 EXPOSE 3000
 
-CMD ["node", "--experimental-strip-types", "src/server/index.ts"]
+CMD ["node_modules/.bin/tsx", "src/server/index.ts"]
