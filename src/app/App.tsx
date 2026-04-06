@@ -361,6 +361,33 @@ export default function App() {
       <main id="main-content" className="main">
         {nav === 'pipeline' && (
           <div className="view">
+            <div
+              style={{
+                width: '100%',
+                borderRadius: 10,
+                overflow: 'hidden',
+                border: '1px solid rgba(249,115,22,0.25)',
+                boxShadow: '0 0 0 1px rgba(249,115,22,0.08), 0 8px 32px rgba(249,115,22,0.06)',
+                marginBottom: 24,
+                position: 'relative',
+                maxHeight: 200,
+              }}
+            >
+              <img
+                src="/hero-og.webp"
+                alt="HireGraph — AI recruiting pipeline"
+                loading="eager"
+                style={{ width: '100%', height: 200, objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to right, rgba(9,9,11,0.55) 0%, transparent 50%, rgba(9,9,11,0.55) 100%)',
+                  pointerEvents: 'none',
+                }}
+              />
+            </div>
             <h1 className="view-title">New Pipeline</h1>
             <p className="view-subtitle">
               Paste a job description and resumes to run the full AI recruiting pipeline.
