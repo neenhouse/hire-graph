@@ -22,15 +22,21 @@ const INITIAL_NODES: AgentNode[] = [
 function ScoreBar({ score }: { score: number }) {
   const color =
     score >= 70 ? '#22c55e' : score >= 40 ? '#eab308' : '#ef4444';
+  const glow = score >= 70
+    ? 'rgba(34,197,94,0.45)'
+    : score >= 40
+      ? 'rgba(234,179,8,0.45)'
+      : 'rgba(239,68,68,0.45)';
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
       <div
         style={{
-          width: 80,
-          height: 8,
-          borderRadius: 4,
-          background: '#27272a',
+          width: 88,
+          height: 6,
+          borderRadius: 3,
+          background: 'rgba(63,63,70,0.6)',
           overflow: 'hidden',
+          flexShrink: 0,
         }}
       >
         <div
@@ -38,12 +44,13 @@ function ScoreBar({ score }: { score: number }) {
             width: `${score}%`,
             height: '100%',
             background: color,
-            borderRadius: 4,
-            transition: 'width 0.5s ease',
+            borderRadius: 3,
+            boxShadow: `0 0 6px ${glow}`,
+            transition: 'width 0.6s cubic-bezier(0.4,0,0.2,1)',
           }}
         />
       </div>
-      <span style={{ color, fontWeight: 600, fontSize: 14, minWidth: 28 }}>
+      <span style={{ color, fontWeight: 700, fontSize: 13, minWidth: 26, tabularNums: 'true' } as React.CSSProperties}>
         {score}
       </span>
     </div>
