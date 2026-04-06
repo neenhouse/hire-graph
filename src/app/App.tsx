@@ -373,12 +373,10 @@ export default function App() {
                 maxHeight: 200,
               }}
             >
-              <img
-                src="/hero-og.webp"
-                alt="HireGraph — AI recruiting pipeline"
-                loading="eager"
-                style={{ width: '100%', height: 200, objectFit: 'cover', objectPosition: 'center', display: 'block' }}
-              />
+              <video autoPlay muted loop playsInline poster="/hero-og.webp" style={{ width: '100%', height: 200, objectFit: 'cover', objectPosition: 'center', display: 'block' }}>
+                <source src="/hero-og.webm" type="video/webm" />
+                <source src="/hero-og.mp4" type="video/mp4" />
+              </video>
               <div
                 style={{
                   position: 'absolute',
