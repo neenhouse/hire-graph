@@ -320,6 +320,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <a href="#main-content" className="skip-to-content">Skip to content</a>
       <aside className="sidebar">
         <div className="sidebar-header">
           <svg width="22" height="22" viewBox="0 0 32 32">
@@ -357,7 +358,7 @@ export default function App() {
         </div>
       </aside>
 
-      <main className="main">
+      <main id="main-content" className="main">
         {nav === 'pipeline' && (
           <div className="view">
             <h1 className="view-title">New Pipeline</h1>
