@@ -32,4 +32,28 @@ describe('App', () => {
     render(<App />)
     expect(screen.getByText('Demo Mode')).toBeInTheDocument()
   })
+
+  it('shows empty state when switching to outreach without running pipeline', () => {
+    render(<App />)
+    fireEvent.click(screen.getByText('Outreach'))
+    expect(screen.getByText('Run a pipeline first to generate outreach.')).toBeInTheDocument()
+  })
+
+  it('shows empty state when switching to bias report without running pipeline', () => {
+    render(<App />)
+    fireEvent.click(screen.getByText('Bias Report'))
+    expect(screen.getByText('Run a pipeline first to see the bias report.')).toBeInTheDocument()
+  })
+
+  it('renders the outreach view title when navigating to outreach', () => {
+    render(<App />)
+    fireEvent.click(screen.getByText('Outreach'))
+    expect(screen.getByRole('heading', { name: 'Outreach Emails' })).toBeInTheDocument()
+  })
+
+  it('renders the bias report view title when navigating to bias', () => {
+    render(<App />)
+    fireEvent.click(screen.getByText('Bias Report'))
+    expect(screen.getByRole('heading', { name: 'Bias Report' })).toBeInTheDocument()
+  })
 })
