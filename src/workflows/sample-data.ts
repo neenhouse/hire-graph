@@ -413,7 +413,7 @@ export const DEMO_RESULTS = {
       candidate_name: 'Alex Chen',
       subject_line: 'Your Stripe dashboard work caught our eye — chat?',
       body:
-        "Hi Alex,\n\nYour work migrating Stripe's dashboard to React 18 — specifically the 40% TTI reduction — is exactly the kind of performance-first thinking we're building toward at TechCo.\n\nWe're looking for a Senior Frontend Engineer to architect our next-gen customer dashboard. The role involves React 18, TypeScript, and Next.js SSR at scale. Given your Airbnb SSR experience serving 50M+ users, I think the technical challenges would feel both familiar and meaningfully new.\n\nThe stack is React, TypeScript, GraphQL, Next.js — and we'd love to tap into your Three.js experience for some upcoming data visualization work.\n\nWould a 20-minute call this week make sense? Happy to share more about the technical roadmap.",
+        "Hi Alex,\n\nYour work migrating Stripe's dashboard to React 18 — specifically the 40% TTI reduction — is exactly the kind of performance-first thinking we're building toward at TechCo.\n\nWe're looking for a Senior Frontend Engineer to architect our redesigned customer dashboard. The role involves React 18, TypeScript, and Next.js SSR at scale. Given your Airbnb SSR experience serving 50M+ users, I think the technical challenges would feel both familiar and meaningfully new.\n\nThe stack is React, TypeScript, GraphQL, Next.js — and we'd love to tap into your Three.js experience for some upcoming data visualization work.\n\nWould a 20-minute call this week make sense? Happy to share more about the technical roadmap.",
       tone: 'Professional and specific, peer-to-peer',
       personalization_notes: [
         'Referenced specific Stripe TTI metric',
